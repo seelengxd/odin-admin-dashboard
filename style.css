@@ -1,0 +1,51 @@
+:root {
+    --yellow: #facc15;
+    --blue: #06b6d4;
+    --grey: #e5e5e5;
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 4fr;
+    grid-template-areas: "sidebar nav" "sidebar main";
+    margin: 0;
+}
+
+.sidebar {
+    background-color: var(--blue);
+    grid-area: sidebar;
+}
+
+.nav {
+    background-color: white;
+    grid-area: nav;
+}
+
+.main {
+    background-color: var(--grey);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "projects announcements" "projects trending";
+    gap: 10px;
+    padding: 10px;
+}
+
+.projects {
+    grid-area: projects;
+}
+
+.announcements {
+    grid-area: announcements
+}
+
+.trending {
+    grid-area: trending;
+}
