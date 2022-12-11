@@ -10,10 +10,10 @@
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr 4fr;
+    grid-template-rows: 1fr 5fr;
     grid-template-areas: "sidebar nav" "sidebar main";
     margin: 0;
 }
@@ -34,18 +34,81 @@ body {
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: "projects announcements" "projects trending";
-    gap: 10px;
-    padding: 10px;
+    gap: 20px;
+    padding: 20px;
 }
 
 .projects {
     grid-area: projects;
+    grid-template-columns: 1fr 1fr;
+}
+
+.projects, .announcements, .trending {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-auto-rows: 1fr;
+    overflow: auto;
+    gap: 20px;
+}
+
+h3 {
+    grid-column: 1 / -1;
+    margin: 0;
+    margin-top: 10px;
 }
 
 .announcements {
-    grid-area: announcements
+    grid-area: announcements;
 }
 
 .trending {
     grid-area: trending;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    padding-left: 20px;
+    box-shadow: 5px 5px 5px #ccc
+}
+
+.announcements > .card {
+    padding: 20px;
+}
+.projects > .card {
+    border-left: 10px solid var(--yellow);
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+}
+
+.card > h4, .card > h5 {
+    font-weight: 900;
+    margin: 5px 0;
+}
+
+.card > p {
+    font-size: 0.8rem;
+    color:#888;
+    margin: 0;
+}
+
+.icons > img {
+    width: 20px;
+    cursor: pointer
+}
+
+.icons {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(3, auto);
+    justify-content: flex-end;
+    align-self: flex-end;
+    padding: 20px;
+}
+
+hr {
+    height: 1px;
+    background-color: #ddd;
+    border: none;
 }
