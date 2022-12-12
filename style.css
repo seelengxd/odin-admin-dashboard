@@ -10,7 +10,6 @@
 }
 
 body {
-    /* min-height: 100vh; */
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr 6fr;
@@ -28,10 +27,11 @@ body {
     grid-area: nav;
     box-shadow: 5px 5px 5px #ddd;
     position: relative;
-    z-index: 1;
+    z-index: 3;
 }
 
 .main {
+    grid-area: main;
     background-color: var(--grey);
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -44,6 +44,7 @@ body {
 .projects {
     grid-area: projects;
     grid-template-columns: 1fr 1fr;
+    z-index: 2;
 }
 
 .projects, .announcements, .trending {
@@ -86,7 +87,8 @@ h3 {
     border-radius: 10px;
     padding: 10px;
     padding-left: 20px;
-    box-shadow: 5px 5px 5px #ccc
+    box-shadow: 5px 5px 5px #ccc;
+    z-index: 2;
 }
 
 .announcements > .card {
@@ -130,7 +132,7 @@ hr {
     border: none;
 }
 
-img.profile-icon {
+.profile-icon {
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -149,4 +151,45 @@ img.profile-icon {
 
 .user > .tag {
     font-weight: 300;
+}
+
+ul {
+    list-style-type: none;
+    color: white;
+    font-weight: 900;
+    padding-left: 0;
+}
+
+.icon {
+    width: 30px;
+    place-self: center;
+    /* This is a sad hack using https://codepen.io/sosuke/pen/Pjoqqp to make the icon white. */
+    filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(290deg) brightness(115%) contrast(101%);
+}
+
+li {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 20px;
+    grid-template-columns: 40px auto;
+    padding-left: 40px;
+}
+
+li:hover {
+    cursor: pointer;
+    background-color: #0369a1;
+    transition: background-color 1000ms linear;
+}
+
+.big.icon {
+    width: 40px;
+    height: 40px;
+}
+
+.sidebar > ul > li:first-of-type {
+    margin-bottom: 30px;
+}
+
+.sidebar > ul > li:nth-last-of-type(4) {
+    margin-bottom: 30px;
 }
